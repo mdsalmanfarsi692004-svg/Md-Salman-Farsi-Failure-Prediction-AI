@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* Milestone 3 Specific CSS */
+    .reco-container { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 20px; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .reco-col { background-color: #151e2f; border-radius: 12px; padding: 20px; border: 1px solid #2a3547; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+    .col-header { color: #ffffff; font-weight: 600; font-size: 16px; margin-bottom: 20px; border-bottom: 1px solid #2a3547; padding-bottom: 10px; }
+    
+    /* Card Styles */
+    .ai-card { background-color: #0b1120; padding: 15px; border-radius: 8px; border: 1px solid #2a3547; margin-bottom: 15px; }
+    .ai-card-title { display: flex; justify-content: space-between; align-items: center; color: #f8fafc; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .ai-card-text { color: #94a3b8; font-size: 12px; margin: 0; line-height: 1.4; }
+    
+    /* Badges based on PPT */
+    .badge-critical { background-color: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; border: 1px solid #ef4444; }
+    .badge-high { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; border: 1px solid #f59e0b; }
+    .badge-medium { background-color: rgba(59, 130, 246, 0.2); color: #3b82f6; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; border: 1px solid #3b82f6; }
+    
+    /* LangGraph Agent Workflow */
+    .workflow-step { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; position: relative; }
+    .workflow-icon { background: #1e293b; padding: 10px; border-radius: 8px; border: 1px solid #334155; font-size: 16px; z-index: 2;}
+    .workflow-text h6 { margin: 0 0 4px 0; color: #f8fafc; font-size: 13px; font-weight: 600; }
+    .workflow-text p { margin: 0; color: #94a3b8; font-size: 11px; line-height: 1.4; }
+</style>
+
+<div style="padding: 0 20px;">
+    <h3 style="color: white; margin-top: 20px;">Recommendations & Strategic Reasoning</h3>
+    <p style="color: #94a3b8; font-size: 14px;">AI-powered mitigation strategies and agent workflows</p>
+    <hr style="border-color: #2a3547; margin-bottom: 20px;">
+</div>
+
+<div class="reco-container">
+    <!-- COLUMN 1: AI Recommendations -->
+    <div class="reco-col">
+        <div class="col-header">AI Recommendations <span style="background: #6366f1; color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; float: right; margin-top: 2px;">Gemini Powered</span></div>
+        
+        <!-- Yahan Jinja loop chalega API ke data par -->
+        {% for reco in ai_data.recommendations %}
+        <div class="ai-card">
+            <div class="ai-card-title">{{ reco.title }} <span class="badge-{{ reco.priority | lower }}">{{ reco.priority }}</span></div>
+            <p class="ai-card-text">{{ reco.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- COLUMN 2: Risk Mitigation -->
+    <div class="reco-col">
+        <div class="col-header">Risk Mitigation <span style="float: right;">🛡️</span></div>
+        
+        <!-- Tab styling for Filters (Ab ye Clickable hain) -->
+        <div id="risk-filters" style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <span onclick="filterCards('all', this)" style="cursor: pointer; background: #ef4444; color: white; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: bold;">All Risks</span>
+            <span onclick="filterCards('financial', this)" style="cursor: pointer; background: #1e293b; color: #94a3b8; padding: 4px 12px; border-radius: 15px; font-size: 11px; border: 1px solid #334155;">Financial</span>
+            <span onclick="filterCards('market', this)" style="cursor: pointer; background: #1e293b; color: #94a3b8; padding: 4px 12px; border-radius: 15px; font-size: 11px; border: 1px solid #334155;">Market</span>
+            <span onclick="filterCards('technical', this)" style="cursor: pointer; background: #1e293b; color: #94a3b8; padding: 4px 12px; border-radius: 15px; font-size: 11px; border: 1px solid #334155;">Technical</span>
+        </div>
+
+        <!-- Cards (Classes add ki hain filter karne ke liye) -->
+        <div class="ai-card risk-card market">
+            <div style="color: #ef4444; font-size: 11px; font-weight: bold; margin-bottom: 8px;">⚠ High Competition <span style="float: right; color: #10b981;">High Impact</span></div>
+            <h6 style="color: white; font-size: 14px; margin: 0 0 5px 0;">Differentiation Strategy</h6>
+            <p class="ai-card-text">Focus on unique AI capabilities and vertical specialization to stand out.</p>
+        </div>
+        
+        <div class="ai-card risk-card financial">
+            <div style="color: #ef4444; font-size: 11px; font-weight: bold; margin-bottom: 8px;">⚠ Budget Constraints <span style="float: right; color: #ef4444;">Critical Impact</span></div>
+            <h6 style="color: white; font-size: 14px; margin: 0 0 5px 0;">Revenue Acceleration</h6>
+            <p class="ai-card-text">Implement freemium model with rapid conversion funnel to generate early revenue.</p>
+        </div>
+
+        <div class="ai-card risk-card technical">
+            <div style="color: #f59e0b; font-size: 11px; font-weight: bold; margin-bottom: 8px;">⚠ Team Skills Gap <span style="float: right; color: #10b981;">Medium Impact</span></div>
+            <h6 style="color: white; font-size: 14px; margin: 0 0 5px 0;">Strategic Hiring</h6>
+            <p class="ai-card-text">Recruit experienced advisors and key hires in marketing and business development.</p>
+        </div>
+    </div>
+
+    <!-- Ye chota sa JS logic hai jo filtering karega -->
+    <script>
+        function filterCards(category, element) {
+            // 1. Sab buttons ko wapas normal dark grey kar do
+            let tabs = document.querySelectorAll('#risk-filters span');
+            tabs.forEach(tab => {
+                tab.style.background = '#1e293b';
+                tab.style.color = '#94a3b8';
+                tab.style.border = '1px solid #334155';
+                tab.style.fontWeight = 'normal';
+            });
+            
+            // 2. Jispe click kiya hai usko Lal (Red) aur Bold kar do
+            element.style.background = '#ef4444';
+            element.style.color = 'white';
+            element.style.border = 'none';
+            element.style.fontWeight = 'bold';
+            
+            // 3. Cards ko Hide ya Show karo
+            let cards = document.querySelectorAll('.risk-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- COLUMN 3: LangGraph Agent -->
+    <div class="reco-col">
+        <div class="col-header">LangGraph Agent <span style="float: right; color: #6366f1;">⑆</span></div>
+        
+        <div style="border-left: 2px solid #334155; padding-left: 20px; margin-left: 10px; margin-top: 20px;">
+            <div class="workflow-step" style="margin-left: -32px;">
+                <div class="workflow-icon" style="color: #ef4444;">📥</div>
+                <div class="workflow-text">
+                    <h6>Data Ingestion</h6>
+                    <p>Collect project and market data.</p>
+                </div>
+            </div>
+            <div class="workflow-step" style="margin-left: -32px;">
+                <div class="workflow-icon" style="color: #f59e0b;">🔍</div>
+                <div class="workflow-text">
+                    <h6>Risk Analysis</h6>
+                    <p>Evaluate business and technical risks.</p>
+                </div>
+            </div>
+            <div class="workflow-step" style="margin-left: -32px;">
+                <div class="workflow-icon" style="color: #3b82f6;">🧠</div>
+                <div class="workflow-text">
+                    <h6>Strategic Reasoning</h6>
+                    <p>Generate mitigation strategies.</p>
+                </div>
+            </div>
+            <div class="workflow-step" style="margin-left: -32px;">
+                <div class="workflow-icon" style="color: #10b981;">✅</div>
+                <div class="workflow-text">
+                    <h6>Validation</h6>
+                    <p>Cross-check recommendations with data.</p>
+                </div>
+            </div>
+            <div class="workflow-step" style="margin-left: -32px;">
+                <div class="workflow-icon" style="color: #8b5cf6;">📄</div>
+                <div class="workflow-text">
+                    <h6>Report Generation</h6>
+                    <p>Create the final assessment report.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
