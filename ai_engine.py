@@ -1,8 +1,9 @@
 from google import genai
 import json
+import os  # NAYA CHANGE: os module import kiya environment variables read karne ke liye
 
-# Teri nayi AQ... wali key yahan daal di hai
-API_KEY = "YOUR_API_KEY_HERE" 
+# NAYA CHANGE: Hardcoded string hata kar Render ke environment variable se key connect kar di
+API_KEY = os.getenv("API_KEY") 
 
 # Naye package mein API connect karne ka naya tarika
 client = genai.Client(api_key=API_KEY)
