@@ -1,82 +1,64 @@
-# Machine Learning System – Data Collection & Market Intelligence
+# 🚀 Failure Prediction AI - Market Intelligence & Risk Analytics
 
-## Milestone 1
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Flask](https://img.shields.io/badge/Flask-Backend-green.svg)
+![Groq](https://img.shields.io/badge/AI-Groq_Llama_3.1-orange.svg)
+![Status](https://img.shields.io/badge/Status-Completed-success.svg)
 
-This project implements:
+## 📌 Project Overview
+Developed as part of an intensive AI/ML Internship program, this project is a comprehensive **Market Intelligence and Risk Analytics Dashboard** designed for Venture Capitalists and evaluators. It analyzes the feasibility of a startup building a "Machine Learning System for Early Detection of Equipment Failure." 
 
-1. Project submission form
-2. PostgreSQL storage
-3. Market analysis
-4. Competitor landscape
-5. Dashboard UI
+The system leverages data analytics, SWOT generation, and state-of-the-art Generative AI (Groq API) to provide real-time strategic reasoning and risk mitigation recommendations.
 
-## Step 1 – Install Python
+---
 
-Check:
+## 🎯 Milestone-wise Implementation
 
+### 🔹 Milestone 1: Data Collection & Market Intelligence
+*   **Startup Profiling:** Dynamic form to capture project name, industry, business model, target market, and budget.
+*   **Market Analysis:** Calculation and visualization of TAM (Total Addressable Market), SAM, and SOM.
+*   **Competitor Landscape:** Direct/Indirect competitor tracking with market share progress bars and growth trends.
+
+### 🔹 Milestone 2: Risk Assessment Engine
+*   **Risk Metrics:** 1-5 scale evaluation across 5 parameters (Market, Financial, Competition, Technical, Operational).
+*   **Automated SWOT Analysis:** Algorithmic generation of Strengths, Weaknesses, Opportunities, and Threats based on the inputted risk matrix.
+*   **Feasibility Scoring:** Calculates overall project viability and success probability.
+
+### 🔹 Milestone 3: AI-Driven Strategic Reasoning
+*   **Groq API Integration:** Integrated the lightning-fast `llama-3.1-8b-instant` model to act as an expert Venture Capitalist.
+*   **Dynamic JSON Recommendations:** The AI engine processes the startup's live risk score and generates customized, actionable mitigation strategies (Critical, High, Medium impact).
+
+### 🔹 Milestone 4: Risk Analytics Dashboard & Deployment
+*   **Professional UI/UX:** Built a dark-themed, 3-column responsive dashboard interface.
+*   **Data Visualization:** Implemented Chart.js for 6-month risk trend analysis.
+*   **Export Functionality:** Engineered a secure backend route to export the final Assessment Report as a downloadable `.txt` file.
+
+---
+
+## 🛠️ Tech Stack
+*   **Backend:** Python, Flask
+*   **Frontend:** HTML5, CSS3, Bootstrap 5, Jinja2 Templates
+*   **AI Engine:** Groq API (`llama-3.1-8b-instant`)
+*   **Data Visualization:** Chart.js
+*   **Database (Optional/Mocked):** PostgreSQL / SQLite
+
+---
+
+## 📸 Dashboard Screenshots
+
+### 1. Market Intelligence & Competitor Tracking
+*(Replace this text with your Milestone 1/Dashboard Top image link)*
+`![Market Intelligence](link_to_image_1.png)`
+
+### 2. Risk Analytics & AI Recommendations
+*(Replace this text with your Milestone 4 Dark Theme Dashboard image link)*
+`![Risk Analytics](link_to_image_2.png)`
+
+---
+
+## ⚙️ Local Setup & Installation
+
+**1. Clone the repository**
 ```bash
-python --version
-```
-
-## Step 2 – Create virtual environment
-
-```bash
-python -m venv venv
-```
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-## Step 3 – Install packages
-
-```bash
-pip install -r requirements.txt
-```
-
-## Step 4 – Create PostgreSQL database
-
-Open pgAdmin 4.
-
-Create database:
-
-`ml_project`
-
-Then open Query Tool for `ml_project` and run the `CREATE TABLE` statement from `database.sql`.
-
-## Step 5 – Set PostgreSQL password
-
-Open:
-
-`database.py`
-
-Change:
-
-`YOUR_POSTGRES_PASSWORD`
-
-to the password created during PostgreSQL installation.
-
-## Step 6 – Run
-
-```bash
-python app.py
-```
-
-Open:
-
-http://127.0.0.1:5000
-
-## Project flow
-
-Project Input
--> Flask
--> PostgreSQL
--> Market Analysis
--> Competitor Analysis
--> Dashboard
-
-## Milestone 2
-
-Risk scoring, SWOT analysis and feasibility assessment can be added later.
+git clone [https://github.com/YourUsername/Team-C-Failure-Prediction-AI.git](https://github.com/YourUsername/Team-C-Failure-Prediction-AI.git)
+cd Team-C-Failure-Prediction-AI
