@@ -78,6 +78,7 @@ source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install flask google-genai pandas
 ```
 **3. Configure the AI Engine**
+
 Get a free API key from Google AI Studio.
 
 Update the API_KEY variable inside ai_engine.py with your active Gemini API key.
