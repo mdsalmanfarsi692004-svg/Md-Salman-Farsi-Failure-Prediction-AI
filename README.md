@@ -68,23 +68,24 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 **1. Clone the repository**
 ```bash
-git clone [https://github.com/TeamC/Team-C-Failure-Prediction-AI.git](https://github.com/TeamC/Team-C-Failure-Prediction-AI.git)
+git clone https://github.com/TeamC/Team-C-Failure-Prediction-AI.git
 cd Team-C-Failure-Prediction-AI
-
-2. Create a virtual environment & install dependencies
+```
+**2. Create a virtual environment & install dependencies**
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install flask google-genai pandas
-
-3. Configure the AI Engine
-
+```
+**3. Configure the AI Engine**
 Get a free API key from Google AI Studio.
 
 Update the API_KEY variable inside ai_engine.py with your active Gemini API key.
 
-4. Run the application
+**4. Run the application**
+```bash
 python app.py
+```
+The application will be live at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-The application will be live at http://127.0.0.1:5000/
-
-Built with 💻 by Team C as part of the AI/ML Internship Track.
+Built with ❤️ by Team C as part of the AI/ML Internship Track.
