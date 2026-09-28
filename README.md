@@ -12,6 +12,9 @@
 **📹 Project Video:** 
 [👉 Click here to view live video](#)  
 
+**📄 Project Report:**
+[👉 Click here to view Project Report](https://drive.google.com/file/d/1aZII4UrSiwsWd-FP_y0xplfLfYaey6WQ/view?usp=drivesdk)
+
 ## 📌 Project Overview
 Developed as part of an intensive AI/ML Internship program, this project is a comprehensive **Market Intelligence and Risk Analytics Dashboard** designed for Venture Capitalists and evaluators. It analyzes the feasibility of a startup building a "Machine Learning System for Early Detection of Equipment Failure." 
 
