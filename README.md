@@ -53,6 +53,35 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 ---
 
+## 📁 Project Folder Structure
+
+```text
+Md-Salman-Farsi-Failure-Prediction-AI/
+│
+├── app.py                 # Main Flask Application & API Routing
+├── ai_engine.py           # Google Gemini API Integration & Strategic Prompting
+├── database.py            # PostgreSQL Database Connection & Config
+├── database.sql           # SQL scripts for table schema and DB initialization
+├── feasibility.py         # Algorithm to compute overall project success probability
+├── market_analysis.py     # Market Sizing module (TAM, SAM, SOM calculations)
+├── risk_engine.py         # Multi-parameter automated risk scoring logic
+├── swot_analysis.py       # Algorithmic SWOT deduction engine
+├── requirements.txt       # Project Dependencies (Flask, google-genai, etc.)
+├── LICENSE                # MIT License file
+├── .gitignore             # Ignored files (.env, __pycache__)
+│
+├── docs/                  # Project Documentation
+│   └── Md_Salman_Farsi_Report.pdf   # Individual Project Submission Report (PDF)
+│
+├── static/                # Client-side Assets
+│   └── css/
+│       └── style.css      # Dark-themed custom UI styling
+│
+└── templates/             # HTML View Templates (Jinja2)
+    ├── input.html         # Data collection & profiling form
+    └── dashboard.html     # Real-time analytics & AI recommendation dashboard
+```
+
 ## 📸 Dashboard Screenshots
 
 ### 1. Project Input Phase
